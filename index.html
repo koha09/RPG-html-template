@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h3>Мрикаев Константин</h3>
+        <h4>Программист волшебник</h4>
+        <div class="inventory">
+            <div class="slot">
+                <div class="item" draggable="true" id='42'>
+                    B
+                    <!-- <div class="item-tooltip">
+                        <h1>Предмет</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, exercitationem. Facere nobis porro quidem sequi ut perferendis suscipit, harum quibusdam, dolor accusamus eius earum soluta? Reiciendis voluptates fugiat cum consequuntur.</p>
+                    </div> -->
+                </div>
+            </div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+        </div>
+    </div>
+    <div class="background">
+        <div class="fog"><div></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        // Предмет перетаскиваемый
+        function dragStart(d){
+            console.log('drag start');
+            ev = d.originalEvent;
+            ev.dataTransfer.effectAllowed='move';
+            ev.dataTransfer.setData("id", ev.target.getAttribute('id'));   
+            ev.dataTransfer.setDragImage(ev.target,16,16);
+            return true;
+        }
+        $('.item').on('dragstart',dragStart)
+
+        // Зона
+        function dragEnter(ev) {
+            event.preventDefault();
+            return true;
+        }
+        function dragOver(ev) {
+            event.preventDefault();
+        }
+        function dragDrop(d) {
+            let ev = d.originalEvent;
+            var data = ev.dataTransfer.getData("id");
+            console.log('drag drop',data);
+            ev.target.appendChild(document.getElementById(data));
+            ev.stopPropagation();
+            return false;
+        }
+        $('.slot').on('dragenter',dragEnter)
+                .on('dragover',dragOver)
+                .on('drop',dragDrop)
+    </script>
+</body>
+</html>

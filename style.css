@@ -1,0 +1,104 @@
+html{
+    background: #191919;
+    font-family: 'PT Serif', serif;
+}
+.container{
+    max-width: 1020px;
+    margin: 20px auto;
+}
+.inventory{
+    background: black;
+}
+.slot{
+    width: 48px;
+    height: 48px;
+    background: #0E0E0E;
+    border-top: 2px double #B28B6A;
+    border-left: 2px double #6A4E42;
+    border-right: 2px double #6A4E42;
+    border-bottom: 2px double #5D4B47;
+    padding: 4px;
+    margin-top: 8px;
+}
+.item{
+    background: slategray;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.item-tooltip{
+    position: absolute;
+    border: 1px solid #ababab;
+    color: gray;
+    background: white;
+    width: 300px;
+    height: 400px;
+    display: none;
+    top: 100%;
+    left: 100%;
+    padding: 10px
+}
+.item:hover .item-tooltip{
+    display: block;
+}
+/* fog */
+.background {
+    position: fixed;
+    z-index: -10;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    background: url(background.jpg)
+}
+.fog {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url("background.jpg") center center;  
+    background-size: cover;
+}
+.fog::before,
+.fog::after,
+.fog div::before, 
+.fog div::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
+}
+.fog div::before, 
+.fog div::after    {
+    left: 100%;
+}
+.fog::before, 
+.fog div::before {
+    background-image: url("fog-1.png");
+    animation: fogmove 30s linear 0s infinite;
+}
+.fog::after, 
+.fog div::after {
+    background-image: url("fog-2.png");
+    animation: fogmove 20s linear 0s infinite;
+}
+@keyframes fogmove {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
