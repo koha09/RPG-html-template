@@ -1,10 +1,13 @@
-import '../styles/style.scss'
 import '../index.html'
+import '../styles/style.scss'
+import 'normalize.css'
+
+import * as $ from 'jquery'
 
 // Предмет перетаскиваемый
 function dragStart(d){
     console.log('drag start');
-    ev = d.originalEvent;
+    const ev = d.originalEvent;
     ev.dataTransfer.effectAllowed='move';
     ev.dataTransfer.setData("id", ev.target.getAttribute('id'));   
     ev.dataTransfer.setDragImage(ev.target,16,16);

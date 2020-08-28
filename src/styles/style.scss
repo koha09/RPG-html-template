@@ -8,6 +8,84 @@ html{
 }
 .inventory{
     background: black;
+    position: relative;
+
+    &-head{
+        position: absolute;
+        top: -32px;
+        left: calc(50% - 150px);
+        background: url('../img/head.png') no-repeat;
+        background-size: contain;
+        height: 65px;
+        width: 300px;
+        color: white;
+        &__wrap{
+            padding: 4px 26px;
+            text-align: center;
+        }
+        &__name{
+            font-size: 16px;
+            margin: 0;  
+            line-height: 2em; 
+            color: #dac8af;
+        }
+        &__class{
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.2em;
+            color: #c1bbb4;
+        }
+    }
+
+    &-hero{
+        position: relative;
+        background: url('../img/hero.png') no-repeat;
+        background-size: contain;
+        width: 488px;
+        height: 490px;
+        &__left{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 90%;
+            width: 16%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            & .slot{
+                margin-top: 4px;
+            }
+        }
+        &__right{
+            position: absolute;
+            top: 20px;
+            left: 80%;
+            height: 90%;
+            width: 16%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & .slot{
+                margin-top: 4px;
+            }
+        }
+        &__model{
+            position: absolute;
+            top: 10%;
+            width: 40%;
+            height: 84%;
+            left: 30%;
+
+            background: green;
+        }
+    }
+
+    &-characteristic{
+
+    }
+
 }
 .slot{
     width: 48px;
@@ -17,8 +95,6 @@ html{
     border-left: 2px double #6A4E42;
     border-right: 2px double #6A4E42;
     border-bottom: 2px double #5D4B47;
-    padding: 4px;
-    margin-top: 8px;
 }
 .item{
     background: slategray;
