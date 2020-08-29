@@ -1,7 +1,7 @@
 import '../index.html'
 import '../styles/style.scss'
 import 'normalize.css'
-
+import './model'
 import * as $ from 'jquery'
 
 // Предмет перетаскиваемый
