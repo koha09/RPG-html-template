@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Досье волшебника</title>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,13 +13,17 @@
 
                 <div class="inventory-head">
                     <div class="inventory-head__wrap">
-                        <h2 class="inventory-head__name">Мрикаев Константин</h2>
-                        <h3 class="inventory-head__class">Программист</h3>
+                        <h2 class="inventory-head__name">Elistram</h2>
+                        <h3 class="inventory-head__class">Программист, 22 уровень</h3>
                     </div>
                 </div>
 
                 <div class="inventory-hero__left">
-                    <div class="slot"></div>
+                    <div class="slot">
+                        <div class="item" draggable="true" id='42'>
+                            B
+                        </div>
+                    </div>
                     <div class="slot"></div>
                     <div class="slot"></div>
                     <div class="slot"></div>
@@ -39,29 +43,37 @@
                     <div class="slot"></div>
                     <div class="slot"></div>
                 </div>
-                <div class="inventory-hero__model">
-                </div>
+                <div class="inventory-hero__model"></div>
             </div>
             <div class="inventory-characteristic">
-
-            </div>
-        </div>
-        <div class="inventory">
-            <div class="slot">
-                <div class="item" draggable="true" id='42'>
-                    B
-                    <!-- <div class="item-tooltip">
-                        <h1>Предмет</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, exercitationem. Facere nobis porro quidem sequi ut perferendis suscipit, harum quibusdam, dolor accusamus eius earum soluta? Reiciendis voluptates fugiat cum consequuntur.</p>
-                    </div> -->
+                <div class="inventory-characteristic__left">
+                    <ul class="characteristic-list">
+                        <li class="characteristic-list__item">
+                            <div class="strip strip--health" title="Выносливость к дедлайнам">
+                                <div class="strip__indicator"></div>
+                                <span class="strip__text">100 %</span>
+                            </div>
+                        </li>
+                        <li class="characteristic-list__item" title="Программерское КИ">
+                            <div class="strip strip--mana">
+                                <div class="strip__indicator"></div>
+                                <span class="strip__text">100 %</span>
+                            </div>
+                        </li>
+                        <li class="characteristic-list__item">
+                            <div class="strip strip--exp" title="Опыт работы на stack overflow">
+                                <div class="strip__indicator"></div>
+                                <span class="strip__text">100 %</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
+                <div class="inventory-characteristic__right"></div>
             </div>
-            <div class="slot"></div>
-            <div class="slot"></div>
         </div>
-    </div>
     <div class="background">
         <div class="fog"><div></div>
+        <audio src="audio/background.mp3"></audio>
     </div>
 </body>
 </html>
