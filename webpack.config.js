@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname,'src/scripts/main.js'),
@@ -50,6 +51,13 @@ module.exports = {
                 loader: 'html-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.(ogg|mp3|wav|mpe?g)$/i,
+                loader: 'file-loader',
+                options: {
+                  name: 'audio/[name].[ext]'
+                }
+            }
         ]
     },
     plugins: [
@@ -62,6 +70,18 @@ module.exports = {
             chunkFilename: '[name].[hash].css'
         }),
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname,'src/models'),
+                    to: path.resolve(__dirname, 'dist/models')
+                },
+                // {
+                //     from: path.resolve(__dirname, 'src/audio'),
+                //     to: path.resolve(__dirname, 'dist/audio')
+                // }
+            ]
+        })
     ],
     devServer: {
         port: 13089,
